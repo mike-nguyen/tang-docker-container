@@ -1,6 +1,6 @@
-FROM centos:7
+FROM registry.fedoraproject.org/fedora-minimal:32
 
-RUN yum -y update && yum -y install tang xinetd && yum clean all && rm -rf /var/cache/yum
+RUN microdnf -y install tang xinetd && microdnf clean all && rm -rf /var/cache/yum
 EXPOSE 80
 
 COPY tangd.xinetd /etc/xinetd.d/tangd
